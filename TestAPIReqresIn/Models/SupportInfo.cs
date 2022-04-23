@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace TestAPIReqresIn.Models
 {
 	/// <summary>
-	/// Информация по Support-объекту ответа API
+	/// Модель "Support", сформированная в ответе get-запроса для API LIST USERS \ SINGLE USER
 	/// </summary>
 	internal class SupportInfo
 	{
+		[JsonConstructor]
 		internal SupportInfo(Uri url, string text)
 		{
 			Url = url;
@@ -16,11 +18,13 @@ namespace TestAPIReqresIn.Models
 		/// <summary>
 		/// Url для пожертвования сервису reqres.in
 		/// </summary>
+		[JsonProperty("url")]
 		internal Uri Url { get; }
 
 		/// <summary>
 		/// Текст с просьбой поддержать сервис reqres.in
 		/// </summary>
+		[JsonProperty("text")]
 		internal string Text { get; }
 	}
 }

@@ -51,8 +51,8 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\GetUserResponse.cs" />
-    <Compile Include="Models\Paging.cs" />
+    <Compile Include="Models\SingleUserResponse.cs" />
+    <Compile Include="Models\ListUsersResponse.cs" />
     <Compile Include="Models\SupportInfo.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="UnitTest1.cs" />

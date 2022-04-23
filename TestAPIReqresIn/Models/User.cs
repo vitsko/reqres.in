@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace TestAPIReqresIn.Models
 {
 	/// <summary>
-	/// Пользователь, информация по которому возвращается из сервиса reqres.in
+	/// Модель "Пользователь", сформированная в ответе get-запроса для API LIST USERS \ SINGLE USER
 	/// </summary>
 	internal class User
 	{
+		[JsonConstructor]
 		internal User(int id, string email, string firstName, string lastName, Uri avatarUrl)
 		{
 			ID = id;
@@ -16,10 +18,19 @@ namespace TestAPIReqresIn.Models
 			AvatarUrl = avatarUrl;
 		}
 
+		[JsonProperty("id")]
 		internal int ID { get; }
+
+		[JsonProperty("email")]
 		internal string Email { get; }
+
+		[JsonProperty("first_name")]
 		internal string FirstName { get; }
+
+		[JsonProperty("last_name")]
 		internal string LastName { get; }
+
+		[JsonProperty("avatar")]
 		internal Uri AvatarUrl { get; }
 	}
 }

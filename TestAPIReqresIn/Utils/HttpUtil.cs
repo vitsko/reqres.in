@@ -13,23 +13,32 @@ namespace TestAPIReqresIn.Utils
 	internal class HttpUtil
 	{
 		private static readonly HttpClient _client = new HttpClient();
-		private string _urlService;
 
-		internal HttpUtil(string urlService)
+		internal HttpUtil()
 		{
-			_urlService = urlService;
 			_client.DefaultRequestHeaders.Accept.Clear();
-			_client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json; charset=utf-8"));
+			_client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 		}
 
-		internal async Task<GetUserResponse> GetResponseAsync()
+		internal async Task<object> GetListUsersResponse(string urlService)
 		{
-			var response = await _client.GetAsync(_urlService);
+			return await GetResponse(urlService, typeof(ListUsersResponse));
+		}
+
+		internal async Task<object> GetSingleUserResponse(string urlService)
+		{
+			return await GetResponse(urlService, typeof(SingleUserResponse));
+		}
+
+		private async Task<object> GetResponse(string urlService, Type typeResponseObject)
+		{
+
+			var response = await _client.GetAsync(urlService);
 
 			if (response.IsSuccessStatusCode)
 			{
 				var responseBody = await response.Content.ReadAsStringAsync();
-				return JsonConvert.DeserializeObject<GetUserResponse>(responseBody);
+				return JsonConvert.DeserializeObject(responseBody, typeResponseObject);
 			}
 
 			return null;
