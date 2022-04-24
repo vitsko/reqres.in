@@ -8,22 +8,22 @@ namespace TestAPIReqresIn.Models.TestData.GET
 	internal class InputGetListUsersResponse
 	{
 		[JsonConstructor]
-		internal InputGetListUsersResponse(int page, int perPage)
+		internal InputGetListUsersResponse(string page, string perPage)
 		{
-			Page = page;
-			PerPage = perPage;
+			Page = string.IsNullOrWhiteSpace(page) ? string.Empty : page;
+			PerPage = string.IsNullOrWhiteSpace(perPage) ? string.Empty : perPage;
 		}
 
 		/// <summary>
 		/// Номер страницы из набора данных пользователей, возвращаемых API GET LIST USERS
 		/// </summary>
 		[JsonProperty("page")]
-		internal int Page { get; }
+		internal string Page { get; }
 
 		/// <summary>
 		/// Количество пользователей на страницу из набора данных, возвращаемого API GET LIST USERS
 		/// </summary>
 		[JsonProperty("per_page")]
-		internal int PerPage { get; }
+		internal string PerPage { get; }
 	}
 }

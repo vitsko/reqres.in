@@ -8,10 +8,9 @@ namespace TestAPIReqresIn.Models.Responses.GET
 	internal class SingleUserResponse
 	{
 		[JsonConstructor]
-		internal SingleUserResponse(User user, SupportInfo support)
+		internal SingleUserResponse(User user)
 		{
 			User = user;
-			Support = support;
 		}
 
 		/// <summary>
@@ -19,11 +18,5 @@ namespace TestAPIReqresIn.Models.Responses.GET
 		/// </summary>
 		[JsonProperty("data")]
 		internal User User { get; }
-
-		/// <summary>
-		/// Информация по support, сформированная в ответ на запрпрос API GET SINGLE USERS
-		/// </summary>
-		[JsonProperty("support")]
-		internal SupportInfo Support { get; }
 	}
 }

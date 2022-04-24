@@ -24,37 +24,37 @@ namespace TestAPIReqresIn.Utils
 		/// <summary>
 		/// Получить список пользователей. API GET LIST USERS
 		/// </summary>
-		/// <param name="urlService">Адрес endpoint для GET LIST USERS</param>
-		internal ListUsersResponse GetListUsersResponse(string urlService)
+		/// <param name="serviceUrl">Адрес endpoint для GET LIST USERS</param>
+		internal ListUsersResponse GetListUsersResponse(string serviceUrl)
 		{
-			return (ListUsersResponse)GetResponse(urlService, typeof(ListUsersResponse)).Result;
+			return (ListUsersResponse)GetResponse(serviceUrl, typeof(ListUsersResponse)).Result;
 		}
 
 		/// <summary>
 		/// Получить данные по пользователю. API GET SINGLE USER
 		/// </summary>
-		/// <param name="urlService">Адрес endpoint для GET SINGLE USER</param>
-		internal SingleUserResponse GetSingleUserResponse(string urlService)
+		/// <param name="serviceUrl">Адрес endpoint для GET SINGLE USER</param>
+		internal SingleUserResponse GetSingleUserResponse(string serviceUrl)
 		{
-			return (SingleUserResponse)GetResponse(urlService, typeof(SingleUserResponse)).Result;
+			return (SingleUserResponse)GetResponse(serviceUrl, typeof(SingleUserResponse)).Result;
 		}
 
 		/// <summary>
 		/// Создать учетную запись пользователя. API POST CREATE
 		/// </summary>
-		/// <param name="urlService">>Адрес endpoint для POST CREATE</param>
+		/// <param name="serviceUrl">>Адрес endpoint для POST CREATE</param>
 		/// <param name="user">Данные по пользователю, для которого создается учетная запись</param>
-		internal CreatedUserResponse PostCreatedUserResponse(string urlService, UserInfo user)
+		internal CreatedUserResponse PostCreatedUserResponse(string serviceUrl, UserInfo user)
 		{
-			return (CreatedUserResponse)PostResponse(urlService, user).Result;
+			return (CreatedUserResponse)PostResponse(serviceUrl, user).Result;
 		}
 
-		private async Task<object> PostResponse(string urlService, UserInfo user)
+		private async Task<object> PostResponse(string serviceUrl, UserInfo user)
 		{
 			var postData = JsonConvert.SerializeObject(user);
 			var strContent = new StringContent(postData);
 			strContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-			var response = await _client.PostAsync(urlService, strContent);
+			var response = await _client.PostAsync(serviceUrl, strContent);
 
 			if (response.IsSuccessStatusCode)
 			{
@@ -65,9 +65,9 @@ namespace TestAPIReqresIn.Utils
 			return null;
 		}
 
-		private async Task<object> GetResponse(string urlService, Type typeResponseObject)
+		private async Task<object> GetResponse(string serviceUrl, Type typeResponseObject)
 		{
-			var response = await _client.GetAsync(urlService);
+			var response = await _client.GetAsync(serviceUrl);
 
 			if (response.IsSuccessStatusCode)
 			{

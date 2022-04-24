@@ -9,24 +9,17 @@ namespace TestAPIReqresIn.Models.TestData.POST
 	class TestFileCreatedUserResponse
 	{
 		[JsonConstructor]
-		internal TestFileCreatedUserResponse(UserInfo userInfo, CreatedUserResponse response, CreatedUserResponse expectedResult)
+		internal TestFileCreatedUserResponse(UserInfo userInfo, CreatedUserResponse expectedResult)
 		{
 			UserInfo = userInfo;
-			Response = response;
 			ExpectedResult = expectedResult;
 		}
 
 		/// <summary>
-		/// ID пользователя для API GET LIST USERS
+		/// Данные пользователя для вызова API POST CREATE
 		/// </summary>
 		[JsonProperty("userId")]
 		internal UserInfo UserInfo { get; }
-
-		/// <summary>
-		/// Результат выполнения API POST CREATE в соответствии с UserInfo
-		/// </summary>
-		[JsonProperty("response")]
-		internal CreatedUserResponse Response { get; }
 
 		/// <summary>
 		/// Ожидаемый результат выполнения API POST CREATE.

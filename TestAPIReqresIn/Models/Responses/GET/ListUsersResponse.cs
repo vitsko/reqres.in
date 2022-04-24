@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace TestAPIReqresIn.Models.Responses.GET
@@ -9,14 +10,13 @@ namespace TestAPIReqresIn.Models.Responses.GET
 	internal class ListUsersResponse
 	{
 		[JsonConstructor]
-		internal ListUsersResponse(int page, int perPage, int total, int totalPages, List<User> users, SupportInfo support)
+		internal ListUsersResponse(int page, int perPage, int total, int totalPages, List<User> users)
 		{
 			Page = page;
 			PerPage = perPage;
 			Total = total;
 			TotalPages = totalPages;
 			Users = users;
-			Support = support;
 		}
 
 		/// <summary>
@@ -48,11 +48,5 @@ namespace TestAPIReqresIn.Models.Responses.GET
 		/// </summary>
 		[JsonProperty("data")]
 		internal List<User> Users { get; }
-
-		/// <summary>
-		/// Информация по support, сформированная в ответ на запрпрос API GET LIST USERS
-		/// </summary>
-		[JsonProperty("support")]
-		internal SupportInfo Support { get; }
 	}
 }

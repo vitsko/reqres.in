@@ -9,10 +9,9 @@ namespace TestAPIReqresIn.Models.TestData.GET
 	internal class TestFileListUsersResponse
 	{
 		[JsonConstructor]
-		internal TestFileListUsersResponse(InputGetListUsersResponse input, ListUsersResponse response, ListUsersResponse expectedResult)
+		internal TestFileListUsersResponse(InputGetListUsersResponse input, ListUsersResponse expectedResult)
 		{
 			Input = input;
-			Response = response;
 			ExpectedResult = expectedResult;
 		}
 
@@ -21,12 +20,6 @@ namespace TestAPIReqresIn.Models.TestData.GET
 		/// </summary>
 		[JsonProperty("input_test")]
 		internal InputGetListUsersResponse Input { get; }
-
-		/// <summary>
-		/// Результат выполнения API GET LIST USERS в соответствии с данными для проверки
-		/// </summary>
-		[JsonProperty("response")]
-		internal ListUsersResponse Response { get; }
 
 		/// <summary>
 		/// Ожидаемый результат выполнения API GET LIST USERS.

@@ -9,10 +9,9 @@ namespace TestAPIReqresIn.Models.TestData.GET
 	internal class TestFileSingleUserResponse
 	{
 		[JsonConstructor]
-		internal TestFileSingleUserResponse(int userId, SingleUserResponse response, SingleUserResponse expectedResult)
+		internal TestFileSingleUserResponse(string userId, SingleUserResponse expectedResult)
 		{
 			UserId = userId;
-			Response = response;
 			ExpectedResult = expectedResult;
 		}
 
@@ -20,13 +19,7 @@ namespace TestAPIReqresIn.Models.TestData.GET
 		/// ID пользователя для API GET LIST USERS
 		/// </summary>
 		[JsonProperty("userId")]
-		internal int UserId { get; }
-
-		/// <summary>
-		/// Результат выполнения API GET SINGLE USER в соответствии с UserId
-		/// </summary>
-		[JsonProperty("response")]
-		internal SingleUserResponse Response { get; }
+		internal string UserId { get; }
 
 		/// <summary>
 		/// Ожидаемый результат выполнения API GET SINGLE USER.

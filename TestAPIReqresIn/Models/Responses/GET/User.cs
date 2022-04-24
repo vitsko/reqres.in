@@ -6,7 +6,7 @@ namespace TestAPIReqresIn.Models.Responses.GET
 	/// <summary>
 	/// Модель "Пользователь", сформированная в ответе запроса для API GET LIST USERS \ SINGLE USER
 	/// </summary>
-	internal class User
+	internal class User : IEquatable<User>
 	{
 		[JsonConstructor]
 		internal User(int id, string email, string firstName, string lastName, Uri avatarUrl)
@@ -47,5 +47,28 @@ namespace TestAPIReqresIn.Models.Responses.GET
 		/// </summary>
 		[JsonProperty("avatar")]
 		internal Uri AvatarUrl { get; }
+
+		public bool Equals(User other)
+		{
+			if (other is null)
+			{
+				return false;
+			}
+
+			return ReferenceEquals(this, other) || ID == other.ID;
+		}
+
+		public override bool Equals(object obj) => Equals(obj as User);
+
+		public override int GetHashCode() => 1;
+
+		public static bool operator ==(User left, User right)
+		{
+			return left is null
+				? right is null
+				: left.Equals(right);
+		}
+
+		public static bool operator !=(User left, User right) => !(left == right);
 	}
 }

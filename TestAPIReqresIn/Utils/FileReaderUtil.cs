@@ -14,13 +14,18 @@ namespace TestAPIReqresIn.Utils
 	internal static class FileReaderUtil
 	{
 		/// <summary>
-		/// Адрес папки с json-файлами для проведения тестирования
+		/// Адрес папки с JSON-файлами для проведения тестирования
 		/// </summary>
 		private static string _fileFolderPath;
 
 		static FileReaderUtil()
 		{
 			_fileFolderPath = ConfigurationManager.AppSettings["FolderWithTestFile"];
+
+			if (!_fileFolderPath.EndsWith(@"\"))
+			{
+				_fileFolderPath += @"\";
+			}
 		}
 
 		/// <summary>
