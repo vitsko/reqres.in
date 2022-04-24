@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace TestAPIReqresIn.Models.GET
+namespace TestAPIReqresIn.Models.Responses.GET
 {
 	/// <summary>
 	/// Модель "Пользователь", сформированная в ответ на запрос для API GET SINGLE USER

@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace TestAPIReqresIn.Models.POST
+namespace TestAPIReqresIn.Models.Responses.POST
 {
 	/// <summary>
 	///  Модель "Пользователь", сформированная в ответ на запрос для API POST CREATE
 	/// </summary>
-	internal class CreatedUserResponse : InputUserInfo
+	internal class CreatedUserResponse : UserInfo
 	{
 		[JsonConstructor]
 		internal CreatedUserResponse(int id, string name, DateTime birthday, string job, DateTime createdAt) : base(name, birthday, job)

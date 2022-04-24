@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace TestAPIReqresIn.Models.GET
+namespace TestAPIReqresIn.Models.Responses.GET
 {
 	/// <summary>
 	/// Модель "Пользователи", сформированная в ответ на запрос для API GET LIST USERS

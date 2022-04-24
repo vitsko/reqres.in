@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace TestAPIReqresIn.Models.GET
+namespace TestAPIReqresIn.Models.Responses.GET
 {
 	/// <summary>
 	/// Модель "Support", сформированная в ответе запроса для API GET LIST USERS \ SINGLE USER

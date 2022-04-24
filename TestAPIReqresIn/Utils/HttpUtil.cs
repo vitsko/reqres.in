@@ -3,8 +3,8 @@ using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using TestAPIReqresIn.Models.GET;
-using TestAPIReqresIn.Models.POST;
+using TestAPIReqresIn.Models.Responses.GET;
+using TestAPIReqresIn.Models.Responses.POST;
 
 namespace TestAPIReqresIn.Utils
 {
@@ -22,20 +22,18 @@ namespace TestAPIReqresIn.Utils
 		}
 
 		/// <summary>
-		/// Получить список пользователей. API LIST USERS
+		/// Получить список пользователей. API GET LIST USERS
 		/// </summary>
-		/// <param name="urlService"></param>
-		/// <returns></returns>
+		/// <param name="urlService">Адрес endpoint для GET LIST USERS</param>
 		internal ListUsersResponse GetListUsersResponse(string urlService)
 		{
 			return (ListUsersResponse)GetResponse(urlService, typeof(ListUsersResponse)).Result;
 		}
 
 		/// <summary>
-		/// Получить данные по пользователю. API SINGLE USER
+		/// Получить данные по пользователю. API GET SINGLE USER
 		/// </summary>
-		/// <param name="urlService"></param>
-		/// <returns></returns>
+		/// <param name="urlService">Адрес endpoint для GET SINGLE USER</param>
 		internal SingleUserResponse GetSingleUserResponse(string urlService)
 		{
 			return (SingleUserResponse)GetResponse(urlService, typeof(SingleUserResponse)).Result;
@@ -44,15 +42,14 @@ namespace TestAPIReqresIn.Utils
 		/// <summary>
 		/// Создать учетную запись пользователя. API POST CREATE
 		/// </summary>
-		/// <param name="urlService"></param>
-		/// <param name="user"></param>
-		/// <returns></returns>
-		internal CreatedUserResponse PostCreatedUserResponse(string urlService, InputUserInfo user)
+		/// <param name="urlService">>Адрес endpoint для POST CREATE</param>
+		/// <param name="user">Данные по пользователю, для которого создается учетная запись</param>
+		internal CreatedUserResponse PostCreatedUserResponse(string urlService, UserInfo user)
 		{
 			return (CreatedUserResponse)PostResponse(urlService, user).Result;
 		}
 
-		private async Task<object> PostResponse(string urlService, InputUserInfo user)
+		private async Task<object> PostResponse(string urlService, UserInfo user)
 		{
 			var postData = JsonConvert.SerializeObject(user);
 			var strContent = new StringContent(postData);

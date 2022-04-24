@@ -1,18 +1,18 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace TestAPIReqresIn.Models.POST
+namespace TestAPIReqresIn.Models.Responses.POST
 {
 	/// <summary>
 	///  Модель "Пользователь", чьи данные используются на вход API
 	/// </summary>
-	internal class InputUserInfo
+	internal class UserInfo
 	{
 		[JsonConstructor]
-		internal InputUserInfo(string name, DateTime birthday, string job)
+		internal UserInfo(string name, DateTime birthday, string job)
 		{
-			Name = name;
-			Job = job;
+			Name = string.IsNullOrWhiteSpace(name) ? string.Empty : name;
+			Job = string.IsNullOrWhiteSpace(job) ? string.Empty : job;
 			Birthday = birthday;
 		}
 
