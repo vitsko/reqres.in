@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace TestAPIReqresIn.Models
+namespace TestAPIReqresIn.Models.GET
 {
 	/// <summary>
-	/// Модель "Support", сформированная в ответе get-запроса для API LIST USERS \ SINGLE USER
+	/// Модель "Support", сформированная в ответе запроса для API GET LIST USERS \ SINGLE USER
 	/// </summary>
 	internal class SupportInfo
 	{

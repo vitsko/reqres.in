@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using TestAPIReqresIn.Models;
+using TestAPIReqresIn.Models.POST;
 using TestAPIReqresIn.Utils;
 
 namespace TestAPIReqresIn
@@ -14,7 +15,7 @@ namespace TestAPIReqresIn
 			Assert.IsTrue(true);
 
 			var httpUtil = new HttpUtil();
-			var response = httpUtil.GetListUsersResponse("https://reqres.in/api/users").Result;
+			var response = httpUtil.PostCreatedUserResponse("https://reqres.in/api/users", new InputUserInfo("Vitaliy", new DateTime(1988, 11, 26), "STE"));
 		}
 	}
 }

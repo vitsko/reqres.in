@@ -51,10 +51,12 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\SingleUserResponse.cs" />
-    <Compile Include="Models\ListUsersResponse.cs" />
-    <Compile Include="Models\SupportInfo.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\POST\InputUserInfo.cs" />
+    <Compile Include="Models\POST\CreatedUserResponse.cs" />
+    <Compile Include="Models\GET\SingleUserResponse.cs" />
+    <Compile Include="Models\GET\ListUsersResponse.cs" />
+    <Compile Include="Models\GET\SupportInfo.cs" />
+    <Compile Include="Models\GET\User.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\HttpUtil.cs" />
