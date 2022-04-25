@@ -1,0 +1,13 @@
+{
+	"input_test": {
+		"page": null,
+		"per_page": "-13qwerty"
+	},
+	"expected_result": {
+		"page": 1,
+		"per_page": -13,
+		"total": 12,
+		"total_pages": 0,
+		"data": []
+	}
+}

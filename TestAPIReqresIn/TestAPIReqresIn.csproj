@@ -65,6 +65,8 @@
     <Compile Include="Models\TestData\POST\TestFileCreatedUserResponse.cs" />
     <Compile Include="Tests\GET\TestListUsersResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\GET\TestSingleUserResponse.cs" />
+    <Compile Include="Tests\POST\TestCreatedUserResponse.cs" />
     <Compile Include="Utils\FileReaderUtil.cs" />
     <Compile Include="Utils\HttpUtil.cs" />
     <Compile Include="Utils\UriUtil.cs" />
@@ -72,12 +74,45 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="TestFiles\GET\Get_DefaultInputValue_ReturnsAllUsers.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_StringPlusMinusOnePageStringPlusMinusOnePerPage_ReturnsEmptyUserData.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_StringPlusOnePageStringPlusOnePerPage_GetFirstPageWithUser.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_StringPageStringPerPage_GetFirstPageWithDefaultCountUser.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_MinusOnePageWithOnePerPage_GetOneUser.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_FirstPageWithMinusOnePerPage_GetFirstPageWithTotalMinusOneUsers.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_MinusOnePageWithMinusOnePerPage_ReturnsEmptyUserData.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_ZeroPageWithZeroPerPage_GetFirstPageWithDefaultUserCount.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_FirstPageWithOnePerPage_GetFirstPageWithOneUser.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPageWithNotNumberPageFirstCharisDigitGreatTotalAndLessZero_ReturnsEmptyUserData.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPageWithPerPageEqualsTotal_ReturnsAllUserData.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPageWithPerPageGreatTotal_ReturnsAllUserData.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPageWithNotNumberPerPageFirstCharisDigitLessTotal_GetFirstPageWithTwoUsers.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPageWithMinusOnePerPageWithNotNumber_GetFirstPageWithTotalMinusOneUserCount.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPageWithNotNumberPerPage_GetFirstPageWithDefaultUserCount.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPerPageWithMinusOnePage_GetFirstPageWithTotalMinusOneUserCount.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPageWithZeroPerPage_GetFirstPageWithDefaultCountUsers.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPageWithOnePerPage_GetFirstPageWithOneUser.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPageWithTwoPerPage_GetFirstPageWithTwoUsers.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPerPageWithNotNumberPageMinusFirstCharisDigitGreatTotal_ReturnsEmptyUserData.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPerPageWithMinusOnePageWithNotNumber_GetMinusOnePageWithDefaultUserCount.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPerPageWithNotNumberPageFirstCharisDigitGreatTotal_ReturnsEmptyUserData.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPerPageWithThreePage_ReturnsEmptyUserData.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPerPageWithNotNumberPageFirstCharisDigitLessTotal_GetPageWithDefaultUserCount.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPerPageWithNotNumberPage_GetFirstPageWithDefaultUserCount.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPerPageWithMinusTwoPage_ReturnsEmptyUserData.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPerPageWithMinusOnePage_GetMinusOnePageWithDefaultUserCount.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPerPageWithZeroPage_GetFirstPageWithDefaultUserCount.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPerPageWithSecondPage_GetSecondPageWithDefaultUserCount.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultPerPageWithFirstPage_GetFirstPageWithDefaultUserCount.json" />
+    <None Include="TestFiles\GET\ListUsers\Get_DefaultParamValues_ReturnsFirstPageWithDefaultUserCount.json" />
+    <None Include="TestFiles\GET\SingleUser\Get_UserIdNotFoundByStringUserId_NotReturnsUser.json" />
+    <None Include="TestFiles\GET\SingleUser\Get_UserIdNotFoundByUserIdIsNull_NotReturnsUser.json" />
+    <None Include="TestFiles\GET\SingleUser\Get_UserIdNotFound_NotReturnsUser.json" />
+    <None Include="TestFiles\GET\SingleUser\Get_UserIdOne_ReturnsUserWithUserIdOne.json" />
+    <None Include="TestFiles\POST\POST_UserWithoutNameAndJob_ReturnsUser.json" />
+    <None Include="TestFiles\POST\POST_UserWithNullNameAndJob_ReturnsUser.json" />
+    <None Include="TestFiles\POST\POST_UserWithNameAndJob_ReturnsUser.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TestFiles\POST\" />
-    <Folder Include="Tests\POST\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

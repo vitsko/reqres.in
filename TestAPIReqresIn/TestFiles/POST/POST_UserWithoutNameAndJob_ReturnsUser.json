@@ -1,0 +1,12 @@
+{
+	"user_info": {
+		"name": "",
+		"job": "",
+		"birthday": "2002-04-25T00:00:00"
+	},
+	"expected_result": {
+		"name": "",
+		"job": "",
+		"birthday": "2002-04-25T00:00:00"
+	}
+}

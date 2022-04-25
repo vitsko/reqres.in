@@ -53,7 +53,7 @@ namespace TestAPIReqresIn.Utils
 		internal static string GetServiceSingleUserResponse(string userId)
 		{
 			return string.IsNullOrWhiteSpace(userId)
-				? $"{_baseAPIUrl}users"
+				? $"{_baseAPIUrl}users/-1"
 				: $"{_baseAPIUrl}users/{HttpUtility.UrlEncode(userId)}";
 		}
 

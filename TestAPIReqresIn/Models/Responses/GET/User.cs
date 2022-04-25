@@ -9,7 +9,7 @@ namespace TestAPIReqresIn.Models.Responses.GET
 	internal class User : IEquatable<User>
 	{
 		[JsonConstructor]
-		internal User(int id, string email, string firstName, string lastName, Uri avatarUrl)
+		internal User(int id = 0, string email = null, string firstName = null, string lastName = null, Uri avatarUrl = null)
 		{
 			ID = id;
 			Email = email;

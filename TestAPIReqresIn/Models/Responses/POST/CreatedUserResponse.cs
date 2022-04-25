@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Text;
 
 namespace TestAPIReqresIn.Models.Responses.POST
 {
@@ -19,13 +20,13 @@ namespace TestAPIReqresIn.Models.Responses.POST
 		/// ID пользователя, учетная запись которого сформирована API POST CREATE
 		/// </summary>
 		[JsonProperty("id")]
-		internal int ID { get; }
+		internal int ID { get; set; }
 
 		/// <summary>
 		/// Время создания учетной записи пользователя, сформированной API POST CREATE
 		/// </summary>
 		[JsonProperty("createdAt")]
-		internal DateTime CreatedAt { get; }
+		internal DateTime CreatedAt { get; set; }
 
 		public bool Equals(CreatedUserResponse other)
 		{
@@ -47,7 +48,17 @@ namespace TestAPIReqresIn.Models.Responses.POST
 				? right is null
 				: left.Equals(right);
 		}
-
 		public static bool operator !=(CreatedUserResponse left, CreatedUserResponse right) => !(left == right);
+
+		public override string ToString()
+		{
+			var builder = new StringBuilder();
+			builder.AppendLine($"Id={ID}");
+			builder.AppendLine($"Name='{Name}'");
+			builder.AppendLine($"Job='{Job}'");
+			builder.AppendLine($"Birthday={Birthday}");
+			builder.AppendLine($"CreatedAt={CreatedAt:dd.MM.yyyy}");
+			return builder.ToString();
+		}
 	}
 }
